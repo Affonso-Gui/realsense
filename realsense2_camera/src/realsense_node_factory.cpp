@@ -49,7 +49,7 @@ void RealSenseNodeFactory::onInit()
 			ROS_INFO_STREAM("publish topics from rosbag file: " << rosbag_filename.c_str());
 			auto pipe = std::make_shared<rs2::pipeline>();
 			rs2::config cfg;
-			cfg.enable_device_from_file(rosbag_filename.c_str(), false);
+			cfg.enable_device_from_file(rosbag_filename.c_str());
 			cfg.enable_all_streams();
 			pipe->start(cfg); //File will be opened in read mode at this point
 			auto _device = pipe->get_active_profile().get_device();
